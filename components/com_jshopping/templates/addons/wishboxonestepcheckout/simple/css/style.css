@@ -1,0 +1,179 @@
+#oneStepCheckoutForm .nvg-form select,
+#oneStepCheckoutForm .nvg-form textarea,
+#oneStepCheckoutForm .nvg-form input[type="text"],
+#oneStepCheckoutForm .nvg-form input[type="password"],
+#oneStepCheckoutForm .nvg-form input[type="datetime"],
+#oneStepCheckoutForm .nvg-form input[type="datetime-local"],
+#oneStepCheckoutForm .nvg-form input[type="date"],
+#oneStepCheckoutForm .nvg-form input[type="month"],
+#oneStepCheckoutForm .nvg-form input[type="time"],
+#oneStepCheckoutForm .nvg-form input[type="week"],
+#oneStepCheckoutForm .nvg-form input[type="number"],
+#oneStepCheckoutForm .nvg-form input[type="email"],
+#oneStepCheckoutForm .nvg-form input[type="url"],
+#oneStepCheckoutForm .nvg-form input[type="search"],
+#oneStepCheckoutForm .nvg-form input[type="tel"],
+#oneStepCheckoutForm .nvg-form input[type="color"] {
+	height: 30px;
+	padding: 4px 6px;
+	border: 1px solid #dddddd;
+	background: #ffffff;
+	color: #444444;
+	-webkit-transition: all linear 0.2s;
+	transition: all linear 0.2s;
+	border-radius: 4px;
+}
+#oneStepCheckoutForm input[type="radio"], 
+#oneStepCheckoutForm input[type="checkbox"] {
+	display:inline-block;
+}
+#oneStepCheckoutForm .nvg-form label,
+#oneStepCheckoutForm .nvg-form input,
+#oneStepCheckoutForm .nvg-form select,
+#oneStepCheckoutForm .nvg-form textarea {
+	
+}
+#oneStepCheckoutForm .jshop_register input {
+	width: 85%;
+}
+
+#onestepcheckout-overlay{
+    position : fixed;
+    left : 0;
+    top : 0;
+    z-index : 65533;
+    background : url('../images/overlay.gif') no-repeat center center #FFF;
+    opacity : 0.5;
+    filter:alpha(opacity=50);
+}
+#oneStepCheckoutForm .jshop_register {
+	margin-top:5px;
+}
+.nvg-block-steps-wrapper {position:relative;clear:both;}
+.nvg-block-step3, .nvg-block-step4 {width:45%; display:inline-block;vertical-align:top;}
+.nvg-block-step4 {margin-left:2%;}
+#oneStepCheckoutForm .jshop_block_privacy_statement {
+	border: 1px solid #ccc;
+	padding:5px 15px; 
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+	margin: 7px 0;
+}
+.onestepcheckout_message,
+.onestepcheckout_warning,
+.onestepcheckout_error  {
+	margin-bottom: 15px;
+	padding: 10px;
+	border-radius: 4px;
+	text-shadow: 0 1px 0 #fff;
+	background: #ebf7fd;
+	color: #2d7091;
+	border: 1px solid rgba(45,112,145,0.3);
+}
+.onestepcheckout_warning {
+	background: #fffceb;
+	color: #e28327;
+	border-color: rgba(226,131,39,0.3);
+}
+.onestepcheckout_error {
+	background: #fff1f0;
+	color: #d85030;
+	border-color: rgba(216,80,48,0.3);
+}
+#oneStepCheckoutForm .step-header {
+	color: rgb(6, 80, 124);
+	border-bottom: 1px dashed #666;
+	padding-bottom: 2px;
+	}
+
+#oneStepCheckoutForm .preview_discount {
+	color: green;
+}
+#oneStepCheckoutForm .nvg-icon-trash {
+	color: #888;
+}
+#oneStepCheckoutForm .add_info {
+	margin-top: 10px;
+}
+#oneStepCheckoutForm .rabatt_input {
+	padding: 7px 10px;
+}
+#oneStepCheckoutForm input[id^=quantity] {
+	width: 55px;
+}
+#oneStepCheckoutForm .fielderror {
+	background: #fff1f0;
+	border-color: #d85030;
+}
+#oneStepCheckoutForm  .button_order_finish {
+	text-transform: uppercase;
+}
+.registr-success {
+	background: #f2fae3;
+	color: #659f13;
+	border-color: #659f13;
+	padding:10px 20px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+#oneStepCheckoutForm  .row_agb {
+	border-top: 1px dotted #aaa;
+	border-bottom: 1px dotted #aaa;
+	padding: 5px;
+	margin-top: 10px;
+}
+#oneStepCheckoutForm div.quantity {
+	position: relative;
+	cursor: pointer;
+	width: 68px;
+}
+#oneStepCheckoutForm div.quantity span.quantitymore,
+#oneStepCheckoutForm div.quantity span.quantityless {
+	display: block;
+	position: absolute;
+	right: 0;
+	width: 15px;
+	height: 50%;
+	border-left: 1px solid #ddd;
+}
+#oneStepCheckoutForm div.quantity span.quantitymore {
+	top: 0;
+	border-bottom: 1px solid #ddd;
+}
+#oneStepCheckoutForm div.quantity span.quantityless {
+	top: 50%;
+}
+
+#oneStepCheckoutForm div.quantity span.quantitymore:after,
+#oneStepCheckoutForm div.quantity span.quantityless:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -4px;
+	margin-top: -3px;
+	border-left: 3px solid transparent;
+	border-right: 3px solid transparent;
+	border-bottom: 6px solid #717171;
+}
+
+#oneStepCheckoutForm div.quantity span.quantityless:after {
+	border-top: 6px solid #717171;
+	border-bottom: 0px;
+}
+#oneStepCheckoutForm div.quantity input{margin:0;}
+
+#oneStepCheckoutForm  .jshop_nvg_register input {width:80%;}
+#oneStepCheckoutForm  .jshop_nvg_register select {width:85%;}
+#oneStepCheckoutForm  .jshop_prod_cart td {vertical-align: middle;}
+#oneStepCheckoutForm  .requiredtext {cursor:help;}
+.finish-page .shipping_description_title, .finish-page .payment_description_title {font-size:120%;font-weight:bold;border-bottom:2px solid #ccc;}
+.nvg-hidden {display:none;}
+.nvg-addinfo-textarea {height:100px;}
+.address_block {clear:both;}
+.nvg-block-adress-fields {float:left; width:45%; margin-right:2%;}    	       	    			          	

@@ -1,0 +1,130 @@
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("fontawesome-webfont.eot");
+  src: url("fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("fontawesome-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class*='onestepcheckout-icon-']:before {
+  display: inline-block;
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: baseline;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+ }
+ 
+.onestepcheckoutsetshow,
+.onestepcheckoutsetshow-check,
+.onestepcheckoutsetshow-check-require {
+  display: inline-block;
+  padding: 5px 12px;
+  width:17px;
+  border: 1px solid #999;
+  background: #eeeeee;
+  color: #bbb;
+  letter-spacing: normal;
+  vertical-align:middle;
+  text-align:center;
+}
+.onestepcheckoutsetshow-check  {
+	color: #0F7A0A;
+}
+.onestepcheckoutsetshow-check-require {
+	color:#950000;
+}
+.onestepcheckout-box-showsimple,
+.onestepcheckout-box-showcheck,
+.onestepcheckout-box-showrequire {
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	background: #bbb;
+}
+.onestepcheckout-box-showcheck {
+	background: #0F7A0A;
+}
+.onestepcheckout-box-showrequire {
+	background: #950000;
+}
+.onestepcheckout-icon-sort:before {
+  content: "\f0dc";
+  color:#111;
+}
+.onestepcheckout-icon-check:before {
+  content: "\f046";
+}
+.onestepcheckout-icon-unchecked:before,
+.onestepcheckout-icon-check-empty:before {
+  content: "\f096";
+}
+.onestepcheckout-icon-truck:before {
+  content: "\f0d1";
+}
+.onestepcheckout-icon-home:before {
+  content: "\f015";
+}
+.onestepcheckout-icon-eye-open:before {
+  content: "\f06e";
+}
+
+.onestepcheckout-icon-eye-close:before {
+content: "\f070";
+}
+.onestepcheckout-icon-warning-sign:before {
+  content: "\f071";
+}
+.onestepcheckout-icon-move:before {
+content: "\f047";
+}
+
+#table_user_fields [id^=params]:focus,
+#table_user_fields [id^=params]:hover,
+.onestepcheckoutselected{
+	/*padding: 3px 0;*/
+	background:#2862AD!important;
+	color: #fff!important;
+}
+.onestepcheckout-title {
+	border: 1px solid #ccc; 
+	border-radius: 4px; 
+	padding: 7px 12px;
+	font-weight: bold;
+	font-size: 120%;
+	background: rgb(255,255,255);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(225,225,225,1) 51%, rgba(246,246,246,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(241,241,241,1)), color-stop(51%,rgba(225,225,225,1)), color-stop(100%,rgba(246,246,246,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
+}
+.onestepcheckout-fieldsetts {
+	width: 60%;
+	float: right;
+}
+.onestepcheckout-fieldsetts i {
+	font-size: 16px;
+}
+.onestepcheckout-fieldslegend {
+	border: 1px solid #ccc;
+	padding: 20px 40px;
+	width: 50%;
+	border-radius: 4px;
+	background: #fafafa;
+	box-shadow: 0 0 .7em #ddd inset;
+}
+
+.gensettings_label{	width:250px;}
+.gensettings_yn{
+	padding: 5px 10px;
+	width:150px;
+}
+.gensettings_yn select{
+	width:150px;
+}

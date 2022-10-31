@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0.0" type="plugin" group="jshoppingcheckout" method="upgrade">
+	<name>plg_jshoppingcheckout_wishboxcheckoutonestepcheckout</name>
+	<creationDate>August 2022</creationDate>
+	<copyright>Copyright (C) 2013-2022 WishBox. All rights reserved.</copyright>
+	<version>1.0.0</version>
+	<author>Vitaliy Nekrasov</author>
+	<authorEmail>nekrasov_vitaliy@list.ru</authorEmail>
+	<license>GNU General Public License version 2 or later</license>
+	<description>PLG_JSHOPPINGCHECKOUT_WISHBOXCHECKOUTONESTEPCHECKOUT_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="wishboxcheckoutonestepcheckout">wishboxcheckoutonestepcheckout.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+        <language tag="en-GB">language/en-GB/plg_jshoppingadmin_wishboxadminonestepcheckout.ini</language>
+		<language tag="en-GB">language/en-GB/plg_jshoppingadmin_wishboxadminonestepcheckout.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_jshoppingadmin_wishboxadminonestepcheckout.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_jshoppingadmin_wishboxadminonestepcheckout.sys.ini</language>
+    </languages>
+</extension>
