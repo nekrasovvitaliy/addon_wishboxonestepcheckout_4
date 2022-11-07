@@ -4,6 +4,7 @@
 	
 	// 
 	// 
+	use \Joomla\CMS\Factory;
 	use \Joomla\CMS\Language\Text;
 	use \Joomla\CMS\Plugin\CMSPlugin;
 	use \Joomla\CMS\Table\Table;
@@ -738,7 +739,7 @@
 			{
 				// 
 				// 
-				$temp_adv_user = JSFactory::getUserShop();
+				$temp_adv_user = \JSFactory::getUserShop();
 				// 
 				// 
 				$fields = get_object_vars($this->adv_user);
@@ -950,7 +951,7 @@
 				$view->package = $this->app->input->getInt('package');
 				// 
 				// 
-				$shippingMethodPrice = JSFactory::getTable('shippingMethodPrice');
+				$shippingMethodPrice = \JSFactory::getTable('shippingMethodPrice');
 				// 
 				// 
 				foreach($view->shipping_methods as $key => $value)
@@ -1038,7 +1039,7 @@
 					{
 						// 
 						// 
-						$paym_method = JSFactory::getTable('paymentmethod');
+						$paym_method = \JSFactory::getTable('paymentmethod');
 						// 
 						// 
 						$paym_method->load($payment_method_id);
@@ -1385,7 +1386,7 @@
 				$description = \JSFactory::getLang()->get('description');
 				//
 				// 
-				$shipping_method = JSFactory::getTable('shippingMethod');
+				$shipping_method = \JSFactory::getTable('shippingMethod');
 				// 
 				// 
 				$shipping_method->load($order->shipping_method_id);
@@ -1593,7 +1594,7 @@
 			{
 				// 
 				// 
-				$order = JSFactory::getTable('order');
+				$order = \JSFactory::getTable('order');
 				// 
 				// 
 				$order->load($order_id);
@@ -1614,7 +1615,10 @@
 		{
 			// 
 			// 
-			if (JFactory::getApplication()->input->getString('controller') != 'checkout')
+			$app = Factory::getApplication();
+			// 
+			// 
+			if ($app->input->getString('controller') != 'checkout')
 			{
 				// 
 				// 
@@ -1974,10 +1978,10 @@
 				$post = $this->app->input->getArray($_POST);
 				// 
 				// 
-				if ($post['birthday']) $post['birthday'] = getJsDateDB($post['birthday'], $this->jshopConfig->field_birthday_format);
+				if ($post['birthday']) $post['birthday'] = \JSHelper::getJsDateDB($post['birthday'], $this->jshopConfig->field_birthday_format);
 				// 
 				// 
-				if ($post['d_birthday']) $post['d_birthday'] = getJsDateDB($post['d_birthday'], $this->jshopConfig->field_birthday_format);
+				if ($post['d_birthday']) $post['d_birthday'] = \JSHelper::getJsDateDB($post['d_birthday'], $this->jshopConfig->field_birthday_format);
 				// 
 				// 
 				unset($post['user_id']);
@@ -1993,7 +1997,7 @@
 				{
 					// 
 					// 
-					JError::raiseWarning(500, _JSHOP_REGWARN_ERROR_DATABASE);
+					\JError::raiseWarning(500, _JSHOP_REGWARN_ERROR_DATABASE);
 					// 
 					// 
 					die;
@@ -2004,13 +2008,13 @@
 				{
 					// 
 					// 
-					$temp_adv_user = JSFactory::getUserShop();
+					$temp_adv_user = \JSFactory::getUserShop();
 					// 
 					// 
 					$fields = get_object_vars($this->adv_user);
 					// 
 					// 
-					foreach ($fields as $field=>$value)
+					foreach ($fields as $field => $value)
 					{
 						// 
 						// 
@@ -2246,7 +2250,7 @@
 						$shipping_query = [];
 						// 
 						// 
-						$reflection = new ReflectionClass($this->controller);
+						$reflection = new \ReflectionClass($this->controller);
 						// 
 						// 
 						$property = $reflection->getProperty('redirect');
@@ -2281,7 +2285,7 @@
 				{
 					// 
 					// 
-					JError::raiseWarning('', _JSHOP_REGWARN_COUNTRY);
+					\JError::raiseWarning('', _JSHOP_REGWARN_COUNTRY);
 				}
 			}
 			// 
