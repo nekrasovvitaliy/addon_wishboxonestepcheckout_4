@@ -2409,7 +2409,7 @@
 					$this->session = $this->app->getSession();
 					// 
 					// 
-					$this->user = Factory::getUser();
+					$this->user = $this->app->getUser();
 					// 
 					// 
 					if ($this->user->id)
