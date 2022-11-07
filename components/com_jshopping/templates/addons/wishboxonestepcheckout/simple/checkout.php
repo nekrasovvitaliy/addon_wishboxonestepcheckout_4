@@ -10,6 +10,8 @@
 **/
 
 defined('_JEXEC') or die;
+// 
+	use Joomla\CMS\Language\Text;
 ?>
 <div class="jshop">
 	<div id="error_min_max_price_order" <?php if ($this->min_price_order || $this->max_price_order) { ?>class="text-danger"<?php } ?>>
@@ -26,10 +28,10 @@ defined('_JEXEC') or die;
 		<thead>
 			<tr>
 				<th></th>
-				<th><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_ITEM_NAME') ?></th>     
-				<th><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SINGLE_PRICE') ?></th>
-				<th><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_QTY') ?></th>
-				<th><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_TOTAL_PRICE') ?></th>
+				<th><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_ITEM_NAME') ?></th>     
+				<th><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SINGLE_PRICE') ?></th>
+				<th><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_QTY') ?></th>
+				<th><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_TOTAL_PRICE') ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -40,7 +42,7 @@ defined('_JEXEC') or die;
 			?> 
 			<tr class="jshop_prod_cart">
 				<td>
-					<a href="<?php echo SEFLink('index.php?option=com_jshopping&controller=cart&task=delete&number_id='.$key_id, 1)?>" onclick="if(confirm('<?php echo JText::_("JSHOP_ONESTEPCHECKOUT_CONFIRM_REMOVE") ?>')){jQuery('#quantity<?php echo $key_id ?>').val(0);oneStepCheckout.refreshForm()}return false;" title = "<?php echo JText::_("JSHOP_ONESTEPCHECKOUT_REMOVE") ?>">x</a>
+					<a href="<?php echo SEFLink('index.php?option=com_jshopping&controller=cart&task=delete&number_id='.$key_id, 1)?>" onclick="if(confirm('<?php echo Text::_("JSHOP_ONESTEPCHECKOUT_CONFIRM_REMOVE") ?>')){jQuery('#quantity<?php echo $key_id ?>').val(0);oneStepCheckout.refreshForm()}return false;" title = "<?php echo Text::_("JSHOP_ONESTEPCHECKOUT_REMOVE") ?>">x</a>
 				</td>
 				<td class="jshop_img_description_center" style="max-width:35%">
 					<a href="<?php echo $prod['href'] ?>">
@@ -54,7 +56,7 @@ defined('_JEXEC') or die;
 					<?php } ?>
 					<?php if ($prod['manufacturer'] != ''){ ?>
 					<div class="manufacturer">
-						<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_MANUFACTURER') ?>: <span><?php echo $prod['manufacturer']?></span>
+						<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_MANUFACTURER') ?>: <span><?php echo $prod['manufacturer']?></span>
 					</div>
 					<?php }?>
 					<?php echo sprintAtributeInCart($prod['attributes_value']) ?>
@@ -63,7 +65,7 @@ defined('_JEXEC') or die;
 					<?php echo $prod['_ext_attribute_html'] ?>
 					<?php if ($this->config->show_delivery_time_step5 && $this->step==5 && $prod['delivery_times_id']){ ?>
 					<div class="deliverytime">
-						<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_TIME') ?>: <?php echo $this->deliverytimes[$prod['delivery_times_id']]?>
+						<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_TIME') ?>: <?php echo $this->deliverytimes[$prod['delivery_times_id']]?>
 					</div>
 					<?php }?>
 				</td>    
@@ -75,7 +77,7 @@ defined('_JEXEC') or die;
 					<?php }?>
 					<?php if ($this->config->cart_basic_price_show && $prod['basicprice']>0){ ?>
 					<div class="basic_price">
-						<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_BASIC_PRICE') ?>: <span><?php echo sprintBasicPrice($prod) ?></span>
+						<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_BASIC_PRICE') ?>: <span><?php echo sprintBasicPrice($prod) ?></span>
 					</div>
 					<?php }?>
 				</td>
@@ -103,7 +105,7 @@ defined('_JEXEC') or die;
 	</table>
 	<?php if ($this->config->show_weight_order){ ?>  
 	<div class="weightorder">
-		<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_WEIGHT_PRODUCTS') ?>: <span><?php echo formatweight($this->weight);?></span>
+		<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_WEIGHT_PRODUCTS') ?>: <span><?php echo formatweight($this->weight);?></span>
 	</div>
 	<?php }?>
       
@@ -113,7 +115,7 @@ defined('_JEXEC') or die;
 		<?php if (!$this->hide_subtotal){?>
 		<tr>    
 			<td class="name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SUBTOTAL') ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SUBTOTAL') ?>
 			</td>
 			<td class="value">
 				<?php echo formatprice($this->summ) ?>
@@ -124,7 +126,7 @@ defined('_JEXEC') or die;
 		<?php if ($this->discount > 0){ ?>
 		<tr class="preview_discount">
 			<td class="name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_RABATT_VALUE') ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_RABATT_VALUE') ?>
 			</td>
 			<td class="value">
 				<?php echo formatprice(-$this->discount) ?>
@@ -135,7 +137,7 @@ defined('_JEXEC') or die;
 		<?php if (isset($this->summ_delivery)){ ?>
 		<tr>
 			<td class="name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SHIPPING_PRICE') ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SHIPPING_PRICE') ?>
 			</td>
 			<td class="value">
 				<?php echo formatprice($this->summ_delivery) ?>
@@ -146,7 +148,7 @@ defined('_JEXEC') or die;
 		<?php if (isset($this->summ_package)){?>
 		<tr>
 			<td class="name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_PACKAGE_PRICE') ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_PACKAGE_PRICE') ?>
 			</td>
 			<td class="value">
 				<?php echo formatprice($this->summ_package) ?>
@@ -191,7 +193,7 @@ defined('_JEXEC') or die;
 		<?php if ($this->free_discount > 0){ ?>  
 		<tr class="one-step-discount">
 			<td colspan="2" align="right">    
-				<span class="free_discount"><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FREE_DISCOUNT') ?>: <?php echo formatprice($this->free_discount) ?></span>  
+				<span class="free_discount"><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FREE_DISCOUNT') ?>: <?php echo formatprice($this->free_discount) ?></span>  
 			</td>
 		</tr>
 		<?php }?>  
@@ -200,12 +202,12 @@ defined('_JEXEC') or die;
 		<div class="rabatt_input">
 			<?php if (!$this->addonParams->placeholder) { ?>
 			<div class=" os-name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_RABATT_INPUT') ?> 
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_RABATT_INPUT') ?> 
 			</div>
 			<?php } ?>
 			<div class="input-append">
-				<input type="text" name="rabatt" <?php if ($this->addonParams->placeholder) { ?>placeholder="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_RABATT_INPUT') ?>"<?php } ?> value="" />
-				<button class="btn" onclick="oneStepCheckout.rabbatForm()"><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_RABATT_ACTIVE') ?></button>
+				<input type="text" name="rabatt" <?php if ($this->addonParams->placeholder) { ?>placeholder="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_RABATT_INPUT') ?>"<?php } ?> value="" />
+				<button class="btn" onclick="oneStepCheckout.rabbatForm()"><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_RABATT_ACTIVE') ?></button>
 			</div>
 		</div>
 	<?php } ?>

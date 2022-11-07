@@ -4,7 +4,15 @@
 	
 	// 
 	// 
-	$language = JFactory::getLanguage();
+	use \Joomla\CMS\Factory;
+	use \Joomla\CMS\Language\Text;
+	
+	// 
+	// 
+	$app = Factory::getApplication();
+	// 
+	// 
+	$language = $app->getLanguage();
 	// 
 	// 
 	$language->load('addon_jshopping_wishboxonestepcheckout', JPATH_SITE.'/components/com_jshopping/templates/addons/wishboxonestepcheckout/default/');
@@ -13,14 +21,14 @@
 	$configPath = __DIR__.'/config.xml';
 	// 
 	// 
-	$formFieldOneStepCheckoutTemplate = new JFormFieldWishBoxOneStepCheckout('wishboxonestepcheckouttemplate', $this->params, $configPath);
+	$formFieldOneStepCheckoutTemplate = new \JFormFieldWishBoxOneStepCheckout('wishboxonestepcheckouttemplate', $this->params, $configPath);
 ?>
 
 <table border="0" cellpadding="0">
 	<tr>
 		<td valign="top" style="padding: 5px 10px">
 			<div class="onestepcheckout-title">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_TEMPLATE_VIEW'); ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_TEMPLATE_VIEW'); ?>
 			</div>
 			<table>
 				<tr>
@@ -123,7 +131,7 @@
 		</td>
 		<td valign="top" style="padding: 5px 10px">
 			<div class="onestepcheckout-title">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_PACKAGE'); ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_PACKAGE'); ?>
 			</div>
 			<table>
 				<tr>
@@ -146,7 +154,7 @@
 		</td>
 		<td valign="top" style="padding: 5px 10px">
 			<div class="onestepcheckout-title">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_EXTENDED'); ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_EXTENDED'); ?>
 			</div>
 			<table>
 				<tr>

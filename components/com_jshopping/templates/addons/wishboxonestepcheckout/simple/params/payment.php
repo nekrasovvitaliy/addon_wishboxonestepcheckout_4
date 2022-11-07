@@ -9,7 +9,10 @@
 * @license GNU GPO
 **/
 
-defined('_JEXEC') or die;
+	defined('_JEXEC') or die;
+
+	use \Joomla\CMS\HTML\HTMLHelper;
+	use \Joomla\CMS\Table\Table;
 
 class JFormFieldPayment extends JFormField {
 
@@ -18,7 +21,7 @@ class JFormFieldPayment extends JFormField {
 	protected function getInput(){
 		require_once JPATH_SITE.'/components/com_jshopping/lib/factory.php'; 
 
-		return JHTML::_( 'select.genericlist', JTable::getInstance('PaymentMethod', 'jshop')->getAllPaymentMethods(0), $this->name.'[]', 'class="inputbox" size="8" id = "payment_desc" multiple="multiple"', 'payment_id', 'name', empty($this->value) ? '0' : $this->value );
+		return HTMLHelper::_( 'select.genericlist', Table::getInstance('PaymentMethod', 'jshop')->getAllPaymentMethods(0), $this->name.'[]', 'class="inputbox" size="8" id = "payment_desc" multiple="multiple"', 'payment_id', 'name', empty($this->value) ? '0' : $this->value );
 	}
 }
 ?>

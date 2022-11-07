@@ -3,7 +3,8 @@
 	defined('_JEXEC') or die;
 	
 	// 
-	use Joomla\CMS\Language\Text;
+	use \Joomla\CMS\Language\Text;
+	use \Joomla\CMS\Table\Table;
 ?>
 <div class="uk-panel uk-panel-box uk-panel-header finish-page">
 	<h3 class="uk-panel-title">
@@ -70,10 +71,11 @@
 				</thead>
 				<tbody>
 				<?php
-				foreach ($this->order->items as $item) {
-					$product = JTable::getInstance('Product', 'jshop');
-					$product->load($item->product_id);
-					$product->getCategory();
+					foreach ($this->order->items as $item)
+					{
+						$product = Table::getInstance('Product', 'jshop');
+						$product->load($item->product_id);
+						$product->getCategory();
 				?>
 				<tr class="jshop_prod_cart">
 					<td>
@@ -109,27 +111,27 @@
 	</dl>
 	<?php if (is_array($this->addonParams->order_shipping_desc) && in_array($this->order->shipping_method_id, $this->addonParams->order_shipping_desc)) { ?>
 	<div id="shipping_description">
-		<div class="shipping_description_title"><i class="uk-icon-truck"></i> <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_SHIPPING_DESC') ?></div>
+		<div class="shipping_description_title"><i class="uk-icon-truck"></i> <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_SHIPPING_DESC') ?></div>
 		<div class="shipping_description_text"><?php echo $this->order->shipping_desc ?></div>
 	</div>
 	<?php } ?>
 	<br/>
 	<?php if (is_array($this->addonParams->order_payment_desc) && in_array($this->order->payment_method_id, $this->addonParams->order_payment_desc)) { ?>
 	<div id="payment_description">
-		<div class="payment_description_title"><i class="uk-icon-money"></i> <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_PAYMENT_DESC') ?></div>
+		<div class="payment_description_title"><i class="uk-icon-money"></i> <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_PAYMENT_DESC') ?></div>
 		<div class="payment_description_text"><?php echo $this->order->payment_desc ?></div>
 	</div>
 	<?php } ?>
-	<div class="uk-alert"><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_ORDER_AFTER'); ?></div>
+	<div class="uk-alert"><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_ORDER_AFTER'); ?></div>
 	<hr class="uk-grid-divider" />
 	<?php } ?>
 	<?php if ($this->contentRegistration) { ?>
 	<div id="preContentRegistration">
-		<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_BEFORE_BUTTON_REGISTRATION'); ?>
+		<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_BEFORE_BUTTON_REGISTRATION'); ?>
 		<div class="uk-text-center uk-margin-top uk-margin-large-bottom">
 			<a href="<?php echo \JSHelper::SEFLink('index.php?option=com_jshopping&controller=user&task=register', 1, 0, $this->config->use_ssl); ?>" class="uk-button uk-button-success uk-button-large" onclick="jQuery('#contentRegistration').show();jQuery('#preContentRegistration').hide();return false">
 				<i class="uk-icon-user"></i>
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_BUTTON_REGISTRATION'); ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_BUTTON_REGISTRATION'); ?>
 			</a>
 		</div>
 	</div>

@@ -4,7 +4,10 @@
 	
 	// 
 	// 
-	use Joomla\CMS\Plugin\CMSPlugin;
+	use \Joomla\CMS\Language\Text;
+	use \Joomla\CMS\Plugin\CMSPlugin;
+	use \Joomla\CMS\Table\Table;
+	use \Joomla\CMS\Uri\Uri;
 	
 	
 	/**
@@ -197,7 +200,7 @@
 			{
 				// 
 				// 
-				$this->document->addScript(JURI::root().'components/com_jshopping/addons/wishboxonestepcheckout/js/jquery.maskedinput.min.js');
+				$this->document->addScript(Uri::root().'components/com_jshopping/addons/wishboxonestepcheckout/js/jquery.maskedinput.min.js');
 				// 
 				// 
 				$this->document->addScriptDeclaration
@@ -1689,7 +1692,7 @@
 			{
 				// 
 				// 
-				$errors .= JText::sprintf('JSHOP_WISHBOXONESTEPCHECKOUT_MESSAGEQUEUE', $error['type'],$error['message']);
+				$errors .= Text::sprintf('JSHOP_WISHBOXONESTEPCHECKOUT_MESSAGEQUEUE', $error['type'],$error['message']);
 			}
 			// 
 			// 
@@ -2141,7 +2144,7 @@
 				{
 					// 
 					// 
-					$paym_method = JTable::getInstance('paymentmethod');
+					$paym_method = Table::getInstance('paymentmethod');
 					// 
 					// 
 					$paym_method->class = $this->payment_method;
@@ -2384,25 +2387,25 @@
 				{
 					// 
 					// 
-					$this->jshopConfig = JSFactory::getConfig();
+					$this->jshopConfig = \JSFactory::getConfig();
 					// 
 					// 
 					$this->jshopConfig->show_cart_all_step_checkout = 0;
 					// 
 					// 
-					$this->app = JFactory::getApplication();
+					$this->app = Factory::getApplication();
 					// 
 					// 
 					$this->_app = new ReflectionClass(get_class($this->app));
 					// 
 					// 
-					$this->document = JFactory::getDocument();
+					$this->document = $this->app->getDocument();
 					// 
 					// 
-					$this->session = JFactory::getSession();
+					$this->session = $this->app->getSession();
 					// 
 					// 
-					$this->user = JFactory::getUser();
+					$this->user = $this->app->getUser();
 					// 
 					// 
 					if ($this->user->id)
@@ -2428,7 +2431,7 @@
 					$this->model = \JSFactory::getModel('checkout', 'Site');
 					// 
 					// 
-					$language = JFactory::getLanguage();
+					$language = $this->app->getLanguage();
 					// 
 					// 
 					$language->load('plg_jshoppingadmin_wishboxadminonestepcheckout', JPATH_ADMINISTRATOR);
@@ -2437,14 +2440,14 @@
 					$language->load('addon_jshopping_wishboxonestepcheckout', JPATH_SITE.'/components/com_jshopping/templates/addons/wishboxonestepcheckout/'.$this->addonParams->template);
 					// 
 					// 
-					$this->document->addStyleSheet(JURI::root().'components/com_jshopping/templates/addons/wishboxonestepcheckout/'.$this->addonParams->template.'/css/style.css');
+					$this->document->addStyleSheet(Uri::root().'components/com_jshopping/templates/addons/wishboxonestepcheckout/'.$this->addonParams->template.'/css/style.css');
 					// 
 					// 
 					if (file_exists(JPATH_SITE.'/components/com_jshopping/templates/addons/wishboxonestepcheckout/'.$this->addonParams->template.'/css/custom.css'))
 					{
 						// 
 						// 
-						$this->document->addStyleSheet(JURI::root().'components/com_jshopping/templates/addons/wishboxonestepcheckout/'.$this->addonParams->template.'/css/custom.css');
+						$this->document->addStyleSheet(Uri::root().'components/com_jshopping/templates/addons/wishboxonestepcheckout/'.$this->addonParams->template.'/css/custom.css');
 					}
 					// 
 					// 
@@ -2457,7 +2460,7 @@
 			{
 				// 
 				// 
-				$this->app = JFactory::getApplication();
+				$this->app = Factory::getApplication();
 				// 
 				// 
 				$mvcFactory = $this->app->bootComponent('com_jshopping')->getMVCFactory($this->app);

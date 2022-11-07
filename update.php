@@ -1,7 +1,7 @@
 <?php
 	// 
 	// 
-	$addon_table = JSFactory::getTable('addon');
+	$addon_table = \JSFactory::getTable('addon');
 	// 
 	// 
 	$addon_table->loadAlias('wishboxonestepcheckout');

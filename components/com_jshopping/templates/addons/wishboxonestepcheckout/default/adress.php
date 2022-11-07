@@ -1,47 +1,67 @@
 <?php
-
-defined('_JEXEC') or die;
+	// 
+	defined('_JEXEC') or die;
+	
+	// 
+	use \Joomla\CMS\HTML\HTMLHelper;
+	use \Joomla\CMS\Language\Text;
 ?>
 <div class="jshop address_block">
-    <?php echo $this->_tmp_ext_html_address_start?>
+    <?php echo $this->_tmp_ext_html_address_start; ?>
     <div class="jshop_nvg_register">
 		<?php
-		foreach ($this->user_fields as $v) {
-			if ($this->config_fields[$v]['display']){
-				if (($v=='firma_code' || $v=='tax_number') && isset($this->config_fields['client_type']) && $this->config_fields['client_type']['display'] && $this->user->client_type!="2") {
+		foreach ($this->user_fields as $v)
+		{
+			// 
+			// 
+			if ($this->config_fields[$v]['display'])
+			{
+				if (($v == 'firma_code' || $v == 'tax_number') && isset($this->config_fields['client_type']) && $this->config_fields['client_type']['display'] && $this->user->client_type!="2")
+				{
 					$style = 'style="display:none"';
-				} else {
+				}
+				else
+				{
 					$style = '';
 				}
 		?>
-		<div class="uk-grid" id="tr_field_<?php echo $v ?>" <?php echo $style ?>>
+		<div class="uk-grid" id="tr_field_<?php echo $v ?>" <?php echo $style; ?>>
 			<?php if (!$this->addonParams->placeholder) { ?>
 			<div class="uk-width-1-1 os-name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v) ?> 
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v) ?> 
 			</div>
 			<?php } ?>
 			<div class="uk-width-1-1 os-value">
 				<span>
 					<?php
-					if ($v=='country') {
+					if ($v == 'country')
+					{
 						echo $this->select_countries;
-					} else if ($v=='title') {
+					}
+					else if ($v == 'title')
+					{
 						echo $this->select_titles;
-					} else if ($v=='client_type') {
+					}
+					else if ($v == 'client_type')
+					{
 						echo $this->select_client_types;
-					} else if ($v=='birthday') {
-						echo JHTML::_('calendar', $this->user->birthday, 'birthday', 'birthday', $this->config->field_birthday_format);
-					} else {
+					}
+					else if ($v=='birthday')
+					{
+						echo HTMLHelper::_('calendar', $this->user->birthday, 'birthday', 'birthday', $this->config->field_birthday_format);
+					}
+					else
+					{
 					?>
-					<input type="text" name="<?php echo $v ?>" id="<?php echo $v ?>" value="<?php echo $this->user->$v ?>" <?php if ($this->addonParams->placeholder) { ?>placeholder="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v) ?>"<?php } ?> />
+					<input type="text" name="<?php echo $v ?>" id="<?php echo $v ?>" value="<?php echo $this->user->$v ?>" <?php if ($this->addonParams->placeholder) { ?>placeholder="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v) ?>"<?php } ?> />
 					<?php } ?>
 				</span>
 				<?php if ($this->config_fields[$v]['require']) { ?>
-				<span class="requiredtext" rel="tooltip" title="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
+				<span class="requiredtext" rel="tooltip" title="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
 					<i class="uk-icon-warning"></i>
 				</span>
 				<?php } else if ($v=='email') { ?>
-				<span id="requiredemail" class="requiredtext uk-hidden" rel="tooltip"  title="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
+				<span id="requiredemail" class="requiredtext uk-hidden" rel="tooltip"  title="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
 					<i class="uk-icon-warning"></i>
 				</span>
 				<?php } ?>
@@ -64,16 +84,16 @@ defined('_JEXEC') or die;
 		<div class="uk-grid">
 			<?php if (!$this->addonParams->placeholder) { ?>
 			<div class="uk-width-1-1 os-name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS') ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS') ?>
 			</div>
 			<?php } ?>
 			<div class="uk-width-1-1 os-value">
 				<?php
 				$options = array(
-					JHtml::_('select.option', '', ($this->addonParams->placeholder ? JText::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS') . ' ' : '') . JText::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS_NO')),
-					JHtml::_('select.option', '1', ($this->addonParams->placeholder ? JText::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS') . ' ' : '') .JText::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS_YES'))
+					HTMLHelper::_('select.option', '', ($this->addonParams->placeholder ? Text::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS') . ' ' : '') . Text::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS_NO')),
+					HTMLHelper::_('select.option', '1', ($this->addonParams->placeholder ? Text::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS') . ' ' : '') .Text::_('JSHOP_ONESTEPCHECKOUT_DELIVERY_ADRESS_YES'))
 				);
-				echo JHTML::_('select.genericlist', $options, 'delivery_adress', 'class="inputbox" size="1" onchange="oneStepCheckout.toggleDeliveryAdress()"','value', 'text', $this->delivery_adress, 'delivery_adress_2' );
+				echo HTMLHelper::_('select.genericlist', $options, 'delivery_adress', 'class="inputbox" size="1" onchange="oneStepCheckout.toggleDeliveryAdress()"','value', 'text', $this->delivery_adress, 'delivery_adress_2' );
 				?>
 			</div>
 		</div>
@@ -89,7 +109,7 @@ defined('_JEXEC') or die;
 		<div class="uk-grid">
 			<?php if (!$this->addonParams->placeholder) { ?>
 			<div class="uk-width-1-1 os-name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v) ?> 
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v) ?> 
 			</div>
 			<?php } ?>
 			<div class="uk-width-1-1 os-value">
@@ -102,14 +122,14 @@ defined('_JEXEC') or die;
 					} else if ($d_v=='d_client_type') {
 						echo $this->select_d_client_types;
 					} else if ($d_v=='d_birthday') {
-						echo JHTML::_('calendar', $this->user->d_birthday, 'd_birthday', 'd_birthday', $this->config->field_birthday_format);
+						echo HTMLHelper::_('calendar', $this->user->d_birthday, 'd_birthday', 'd_birthday', $this->config->field_birthday_format);
 					} else {
 					?>
-					<input type="text" name="<?php echo $d_v ?>" id="<?php echo $d_v ?>" value="<?php echo $this->user->$d_v ?>" <?php if ($this->addonParams->placeholder) { ?>placeholder="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v) ?>"<?php } ?> />
+					<input type="text" name="<?php echo $d_v ?>" id="<?php echo $d_v ?>" value="<?php echo $this->user->$d_v ?>" <?php if ($this->addonParams->placeholder) { ?>placeholder="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v) ?>"<?php } ?> />
 					<?php } ?>
 				</span>
 				<?php if ($this->config_fields[$d_v]['require']){ ?>
-				<span class="requiredtext" rel="tooltip" title="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
+				<span class="requiredtext" rel="tooltip" title="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
 					<i class="uk-icon-warning"></i>
 				</span>
 				<?php } ?>
@@ -131,10 +151,10 @@ defined('_JEXEC') or die;
 		<div class="jshop_block_privacy_statement">    
 			<input type="checkbox" name="privacy_statement" id="privacy_statement" value="1" />
 			<a class="privacy_statement" href="#" onclick="window.open('<?php echo \JSHelper::SEFLink('index.php?option=com_jshopping&controller=content&task=view&page=privacy_statement&tmpl=component', 1);?>','window','width=800, height=600, scrollbars=yes, status=no, toolbar=no, menubar=no, resizable=yes, location=no');return false;">
-			<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_PRIVACY_STATEMENT') ?> 
+			<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_PRIVACY_STATEMENT') ?> 
 			</a>
 			<?php if ($this->config_fields['privacy_statement']['require']){ ?>
-				<span class="requiredtext" rel="tooltip"  title="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
+				<span class="requiredtext" rel="tooltip"  title="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
 					<i class="uk-icon-warning"></i>
 				</span>
 			<?php } ?>					
@@ -146,7 +166,7 @@ defined('_JEXEC') or die;
 	if ($this->allowUserRegistration) {
 		if ($this->config->shop_user_guest == 4) {
 	?>
-	<strong><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_CREATE_USER_ACCOUNT') ?></strong>
+	<strong><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_CREATE_USER_ACCOUNT') ?></strong>
 	<input type="checkbox" name="register" id="register" value="1" onclick="oneStepCheckout.toggleRegistration()" />
 	<?php } else { ?>
 	<input type="hidden" name="register" id="register" value="1" />
@@ -166,13 +186,13 @@ defined('_JEXEC') or die;
 		<div class="uk-grid">
 			<?php if (!$this->addonParams->placeholder) { ?>
 			<div class="uk-width-1-1 os-name">
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$k) ?> 
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$k) ?> 
 			</div>
 			<?php } ?>
 			<div class="uk-width-1-1 os-value">
-				<input type="text" name="<?php echo $k ?>" id="<?php echo $k ?>" value="" <?php if ($this->addonParams->placeholder) { ?>placeholder="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$k) ?>"<?php } ?> />
+				<input type="text" name="<?php echo $k ?>" id="<?php echo $k ?>" value="" <?php if ($this->addonParams->placeholder) { ?>placeholder="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$k) ?>"<?php } ?> />
 				<?php if ($v['require']){ ?>
-				<span class="requiredtext" rel="tooltip"  title="<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
+				<span class="requiredtext" rel="tooltip"  title="<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?>">
 					<i class="uk-icon-warning"></i>
 				</span>
 				<?php } ?>
@@ -190,7 +210,7 @@ defined('_JEXEC') or die;
     
     <div style="padding-top:10px;">
         <?php echo $this->_tmpl_address_html_8?>
-        <div class="requiredtext"><i class="uk-icon-warning"></i> - <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?></div>
+        <div class="requiredtext"><i class="uk-icon-warning"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_REQUIRED') ?></div>
         <?php echo $this->_tmpl_address_html_9?>
     </div>
 </div>

@@ -4,11 +4,11 @@
 	
 	// 
 	// 
-	use Joomla\CMS\Factory;
-	use Joomla\CMS\Form\Form;
-	use Joomla\CMS\HTML\HTMLHelper;
-	use Joomla\CMS\Language\Text;
-	use Joomla\CMS\Uri\Uri;
+	use \Joomla\CMS\Factory;
+	use \Joomla\CMS\Form\Form;
+	use \Joomla\CMS\HTML\HTMLHelper;
+	use \Joomla\CMS\Language\Text;
+	use \Joomla\CMS\Uri\Uri;
 	
 	/**
 	 *
@@ -116,7 +116,10 @@
 	$uri = 'index.php?'.http_build_query($get);
 	// 
 	// 
-	$app->getLanguage()->load('addon_jshopping_onestepcheckout', JPATH_SITE.'/components/com_jshopping/templates/addons/onestepcheckout/'.$this->params->template);
+	$app->getLanguage()->load(
+								'addon_jshopping_wishboxonestepcheckout',
+								JPATH_SITE.'/components/com_jshopping/templates/addons/wishboxonestepcheckout/'.$this->params->template
+							);
 	// 
 	// 
 	if (!isset($this->params->user_fields))
@@ -194,7 +197,7 @@
 		{
 			// 
 			// 
-			if (confirm('<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_TEMPLATE_CHANGE'); ?>'))
+			if (confirm('<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_TEMPLATE_CHANGE'); ?>'))
 			{
 				// 
 				// 
@@ -340,25 +343,26 @@
 	<?php echo HTMLHelper::_('uitab.addTab', 'tabsOneStepCheckoutSettings', 'tab2', Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS')); ?>
 	<div class="onestepcheckout-fieldsetts">
 		<div class="onestepcheckout-fieldslegend">
-			<i class="onestepcheckout-icon-home"></i> - <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_BASE') ?><br/><br/>
-			<i class="onestepcheckout-icon-truck"></i> - <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_DELIVERY') ?><br/><br/>
-			<span class="onestepcheckout-box-showrequire"> </span> <span> - <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_REQUIRE') ?></span><br/><br/>
-			<span class="onestepcheckout-box-showcheck"> </span> <span> - <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_CHECK') ?></span><br/><br/>
-			<span class="onestepcheckout-box-showsimple"> </span> <span> - <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_SIMPLE') ?></span><br/><br/><br/>
-			<i class="onestepcheckout-icon-move"></i> - <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_MOVE') ?><br/><br/>
-			<br/><br/>
-			<hr/>
-			<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_ASTERICS').' '.JText::_('JSHOP_ONESTEPCHECKOUT_TEMPLATE_DEPENDED') ?>
+			<i class="onestepcheckout-icon-home"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_BASE') ?><br/><br/>
+			<i class="onestepcheckout-icon-truck"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_DELIVERY') ?><br/><br/>
+			<span class="onestepcheckout-box-showrequire"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_REQUIRE') ?></span><br/><br/>
+			<span class="onestepcheckout-box-showcheck"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_CHECK') ?></span><br/><br/>
+			<span class="onestepcheckout-box-showsimple"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_SIMPLE') ?></span><br/><br/><br/>
+			<i class="onestepcheckout-icon-move"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_MOVE') ?><br/><br/>
+			<br />
+			<br />
+			<hr />
+			<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_ASTERICS').' '.Text::_('JSHOP_ONESTEPCHECKOUT_TEMPLATE_DEPENDED'); ?>
 		</div>
 	</div>
 	<table id="table_user_fields" class="1sc_fields_table table" style="width:400px; font-size:14px;padding-left:20px" cellspacing="0" cellpadding="2">
 		<thead>
 			<tr>
 				<th style="text-align:center;">
-					<?php echo JText::_('JSHOP_TITLE'); ?>
+					<?php echo Text::_('JSHOP_TITLE'); ?>
 				</th>
 				<th style="text-align:center;">
-					<span data-uk-tooltip title="<?php echo JText::_('JSHOP_DISPLAY'); ?>">
+					<span data-uk-tooltip title="<?php echo Text::_('JSHOP_DISPLAY'); ?>">
 						<i class="onestepcheckout-icon-eye-open"></i>  /  <i class="onestepcheckout-icon-eye-close"></i>
 					</span>
 				</th>
@@ -368,32 +372,54 @@
 			<?php
 			foreach ($user_fields as $v)
 			{
-				if (substr($v, 0, 2)=='d_' || $v=='privacy_statement')
+				// 
+				// 
+				if (substr($v, 0, 2) == 'd_' || $v == 'privacy_statement')
 				{
+					// 
+					// 
 					continue;
 				}
+				// 
+				// 
 				$class_home = $class_track = 'onestepcheckoutsetshow';
+				// 
+				// 
 				if (isset($config_fields[$v]['display']) && $config_fields[$v]['display'])
 				{
+					// 
+					// 
 					$class_home .= '-check';
 				}
+				// 
+				// 
 				if (isset($config_fields[$v]['require']) && $config_fields[$v]['require'])
 				{
+					// 
+					// 
 					$class_home .= '-require';
 				}
+				// 
+				// 
 				if (isset($config_fields['d_'.$v]['display']) && $config_fields['d_'.$v]['display'])
 				{
+					// 
+					// 
 					$class_track .= '-check';
 				}
+				// 
+				// 
 				if (isset($config_fields['d_'.$v]['require']) && $config_fields['d_'.$v]['require'])
 				{
+					// 
+					// 
 					$class_track .= '-require';
 				}
 			?>
 			<tr id="params<?php echo $v; ?>">
 				<td>
 					<i class="wishboxonestepcheckout-icon-sort"></i>
-					<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v); ?>
+					<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_USER_FIELD_'.$v); ?>
 					<input type="hidden" name="params[user_fields][]" value="<?php echo $v; ?>" />
 				</td>
 				<td>

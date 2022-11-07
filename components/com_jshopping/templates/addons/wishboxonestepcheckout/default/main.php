@@ -1,8 +1,9 @@
 <?php
-
+	// 
 	defined('_JEXEC') or die;
 	
 	// 
+	use Joomla\CMS\HTML\HTMLHelper;
 	use Joomla\CMS\Language\Text;
 	
 	// 
@@ -136,7 +137,7 @@
 			<i class="uk-icon-sign-in uk-text-large"></i>
 		</button>
 	</div>
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo HTMLHelper::_('form.token'); ?>
 	<input type="hidden" name="return" value="<?php echo base64_encode($_SERVER['REQUEST_URI']) ?>" />
 	<input type="hidden" name="onestepcheckout" value="1" />
 </form>
@@ -241,11 +242,11 @@
 			<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_ORDER_FINISH'); ?>
 		</button>
 	</div>
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo HTMLHelper::_('form.token'); ?>
 </form>
 <?php if (!$this->config->without_payment) { ?>
 <form id="payment_form" name="payment_form" action="javascript:void(0)" method="post">
 	<input type="hidden" name="check_payment_form" value="1" />
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo HTMLHelper::_('form.token'); ?>
 </form>
 <?php } ?>

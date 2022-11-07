@@ -1,44 +1,40 @@
 ﻿<?php
-/**
-* @package Joomla
-* @subpackage JoomShopping
-* @author Garry
-* @website https://joom-shopping.com/
-* @email info@joom-shopping.com
-* @copyright Copyright © joom-shopping All rights reserved.
-* @license GNU GPO
-**/
-
-defined('_JEXEC') or die;
+	// 
+	defined('_JEXEC') or die;
+	
+	// 
+	// 
+	use \Joomla\CMS\Language\Text;
+	use \Joomla\CMS\Table\Table;
 ?>
 <div class="uk-panel uk-panel-box uk-panel-header finish-page">
 	<h3 class="uk-panel-title">
-		<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_TITLE'.(($this->addonParams->finish_register && $this->register) ? '_REGISTER' : '')) ?>
+		<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_TITLE'.(($this->addonParams->finish_register && $this->register) ? '_REGISTER' : '')) ?>
 	</h3>
 	<?php if ($this->addonParams->finish_register && $this->register) { ?>
 	<div class="registr-success">
-		<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_REGISTER') ?>
+		<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_REGISTER') ?>
 	</div>
 	<hr class="uk-grid-divider" />
 	<?php } ?>
 	<?php if ($this->addonParams->finish_extended) { ?>
-	<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_ORDER_BEFORE') ?>
+	<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_ORDER_BEFORE') ?>
 	<dl class="uk-description-list uk-description-list-horizontal"> 
 		<?php if ($this->addonParams->order_number) { ?>
-		<dt><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_NUMBER') ?></dt>
+		<dt><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_NUMBER') ?></dt>
 		<dd><?php echo $this->order->order_number ?></dd>
 		<?php } ?>
 		<?php if ($this->addonParams->order_subtotal) { ?>
-		<dt><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_SUBTOTAL') ?></dt>
+		<dt><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_SUBTOTAL') ?></dt>
 		<dd><?php echo formatprice($this->order->order_subtotal, $this->order->currency_code) ?></dd>
 		<?php } ?>
 		<?php if ($this->addonParams->order_discount) { ?>
 		<?php if ($this->order->order_discount > 0) { ?>
-		<dt><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_DISCOUNT') ?></dt>
+		<dt><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_DISCOUNT') ?></dt>
 		<dd><?php echo formatprice(-$this->order->order_discount, $this->order->currency_code) ?></dd>
 		<?php } ?>
 		<?php if ($this->order_total && $this->order->order_total != $this->order_total) { ?>
-		<dt><?php echo $this->order_total > $this->order->order_total ? JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_ADDITIONAL_DISCOUNT') : JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_ADDITIONAL_SURCHARGE') ?></dt>
+		<dt><?php echo $this->order_total > $this->order->order_total ? Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_ADDITIONAL_DISCOUNT') : Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_ADDITIONAL_SURCHARGE') ?></dt>
 		<dd><?php echo formatprice($this->order->order_total - $this->order_total, $this->order->currency_code) ?></dd>
 		<?php } ?>
 		<?php } ?>
@@ -51,11 +47,11 @@ defined('_JEXEC') or die;
 		<dd><?php echo formatprice($this->order->order_shipping, $this->order->currency_code) ?></dd>
 		<?php } ?>
 		<?php if ($this->addonParams->order_package && ($this->order->order_package>0 || $this->config->display_null_package_price)) { ?>
-		<dt><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_PACKAGE') ?></dt>
+		<dt><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_PACKAGE') ?></dt>
 		<dd><?php echo formatprice($this->order->order_package, $this->order->currency_code) ?></dd>
 		<?php } ?>
 		<?php if ($this->addonParams->order_total) { ?>
-		<dt><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_TOTAL') ?></dt>
+		<dt><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_TOTAL') ?></dt>
 		<dd><?php echo formatprice($this->order->order_total, $this->order->currency_code) ?></dd>
 		<?php } ?>
 		<?php
@@ -63,21 +59,21 @@ defined('_JEXEC') or die;
 			$this->order->items = $this->order->getAllItems();
 			if (count($this->order->items)) {
 		?>
-		<dt><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_PRODUCTS') ?></dt>
+		<dt><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_PRODUCTS') ?></dt>
 		<dd>
 			<table class="minicart uk-table">
 				<thead>
 					<tr>
-						<th><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_ITEM_NAME') ?></th>     
-						<th><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_SINGLE_PRICE') ?></th>
-						<th><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_QTY') ?></th>
-						<th><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_TOTAL_PRICE') ?></th>
+						<th><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_ITEM_NAME') ?></th>     
+						<th><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SINGLE_PRICE') ?></th>
+						<th><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_QTY') ?></th>
+						<th><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_TOTAL_PRICE') ?></th>
 					</tr>
 				</thead>
 				<tbody>
 				<?php
 				foreach ($this->order->items as $item) {
-					$product = JTable::getInstance('Product', 'jshop');
+					$product = Table::getInstance('Product', 'jshop');
 					$product->load($item->product_id);
 					$product->getCategory();
 				?>
@@ -115,27 +111,27 @@ defined('_JEXEC') or die;
 	</dl>
 	<?php if (is_array($this->addonParams->order_shipping_desc) && in_array($this->order->shipping_method_id, $this->addonParams->order_shipping_desc)) { ?>
 	<div id="shipping_description">
-		<div class="shipping_description_title"><i class="uk-icon-truck"></i> <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_SHIPPING_DESC') ?></div>
+		<div class="shipping_description_title"><i class="uk-icon-truck"></i> <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_SHIPPING_DESC') ?></div>
 		<div class="shipping_description_text"><?php echo $this->order->shipping_desc ?></div>
 	</div>
 	<?php } ?>
 	<br/>
 	<?php if (is_array($this->addonParams->order_payment_desc) && in_array($this->order->payment_method_id, $this->addonParams->order_payment_desc)) { ?>
 	<div id="payment_description">
-		<div class="payment_description_title"><i class="uk-icon-money"></i> <?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_PAYMENT_DESC') ?></div>
+		<div class="payment_description_title"><i class="uk-icon-money"></i> <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_ORDER_PAYMENT_DESC') ?></div>
 		<div class="payment_description_text"><?php echo $this->order->payment_desc ?></div>
 	</div>
 	<?php } ?>
-	<div class="uk-alert"><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_ORDER_AFTER') ?></div>
+	<div class="uk-alert"><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_ORDER_AFTER') ?></div>
 	<hr class="uk-grid-divider" />
 	<?php } ?>
 	<?php if ($this->contentRegistration) { ?>
 	<div id="preContentRegistration">
-		<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_BEFORE_BUTTON_REGISTRATION') ?>
+		<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_TEXT_BEFORE_BUTTON_REGISTRATION') ?>
 		<div class="uk-text-center uk-margin-top uk-margin-large-bottom">
 			<a href="<?php echo SEFLink('index.php?option=com_jshopping&controller=user&task=register',1,0, $this->config->use_ssl) ?>" class="uk-button uk-button-success uk-button-large" onclick="jQuery('#contentRegistration').show();jQuery('#preContentRegistration').hide();return false">
 				<i class="uk-icon-user"></i>
-				<?php echo JText::_('JSHOP_ONESTEPCHECKOUT_FINISH_BUTTON_REGISTRATION') ?>
+				<?php echo Text::_('JSHOP_ONESTEPCHECKOUT_FINISH_BUTTON_REGISTRATION') ?>
 			</a>
 		</div>
 	</div>

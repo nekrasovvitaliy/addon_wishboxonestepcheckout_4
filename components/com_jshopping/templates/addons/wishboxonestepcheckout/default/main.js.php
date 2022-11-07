@@ -1,6 +1,9 @@
 <?php
-
-defined('_JEXEC') or die;
+	// 
+	defined('_JEXEC') or die;
+	
+	// 
+	use \Joomla\CMS\Uri\Uri;
 ?>
 <script type="text/javascript">
 //<![CDATA[
@@ -53,7 +56,7 @@ oneStepCheckout.updateForm = function(step) {
 	oneStepCheckout.xhrUpdate = $.ajax({
 		type: 'POST',
 		dataType: 'json',
-		url: '<?php echo JURI::root() ?>index.php?option=com_jshopping&controller=checkout&task=step2&osctask=step'+step+'update', 
+		url: '<?php echo Uri::root() ?>index.php?option=com_jshopping&controller=checkout&task=step2&osctask=step'+step+'update', 
 		data: $('#oneStepCheckoutForm').serialize(),
 		cache: false,
 		success: function(json){
@@ -78,7 +81,7 @@ oneStepCheckout._refreshForm = function(el) {
 	oneStepCheckout.xhrRefresh = $.ajax({
 		type: 'POST',
 		dataType: 'json',
-		url: '<?php echo JURI::root() ?>index.php?option=com_jshopping&controller=cart&task=refresh&ajax=1', 
+		url: '<?php echo Uri::root() ?>index.php?option=com_jshopping&controller=cart&task=refresh&ajax=1', 
 		data: $('#step5').find('[name^=quantity]').serialize(),
 		cache: false,
 		success: function(json){
@@ -143,7 +146,7 @@ oneStepCheckout.rabbatForm = function() {
 	oneStepCheckout.xhrRabbat = $.ajax({
 		type: 'POST',
 		dataType: 'json',
-		url: '<?php echo JURI::root() ?>index.php?option=com_jshopping&controller=cart&task=discountsave&ajax=1', 
+		url: '<?php echo Uri::root() ?>index.php?option=com_jshopping&controller=cart&task=discountsave&ajax=1', 
 		data: $('#step5 input[name=rabatt]').serialize(),
 		cache: false,
 		success: function(json){

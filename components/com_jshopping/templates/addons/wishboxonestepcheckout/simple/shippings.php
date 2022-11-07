@@ -1,15 +1,11 @@
 <?php
-/**
-* @package Joomla
-* @subpackage JoomShopping
-* @author Garry
-* @website https://joom-shopping.com/
-* @email info@joom-shopping.com
-* @copyright Copyright © joom-shopping All rights reserved.
-* @license GNU GPO
-**/
-
-defined('_JEXEC') or die;
+	// 
+	defined('_JEXEC') or die;
+	
+	// 
+	// 
+	use \Joomla\CMS\Language\Text;
+	use \Joomla\CMS\Uri\Uri;
 ?>
 <div class="jshop">
 <?php echo $this->_tmp_ext_html_shipping_start ?>
@@ -80,14 +76,14 @@ defined('_JEXEC') or die;
 <?php if ($this->addonParams->package) { ?>
 <div class="jshop">
 	<input type="checkbox" name="package" id="package" value="1" <?php if ($this->package) echo 'checked="checked"' ?> onclick="oneStepCheckout.updateForm(<?php echo $this->config->step_4_3 ? 3 : 4 ?>)" />
-	<label for="package"><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_PACKAGE_LABEL') ?></label>
+	<label for="package"><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_PACKAGE_LABEL') ?></label>
 	<?php if ($this->addonParams->package_image != '-1') { ?>
 	<div id="package_image">
-		<img src="<?php echo JURI::root(true).'/components/com_jshopping/templates/addons/onestepcheckout/'.$this->addonParams->template.'/images/'.$this->addonParams->package_image ?>" />
+		<img src="<?php echo Uri::root(true).'/components/com_jshopping/templates/addons/onestepcheckout/'.$this->addonParams->template.'/images/'.$this->addonParams->package_image ?>" />
 	</div>
 	<?php } ?>
 	<?php if ($this->addonParams->package_text) { ?>
-	<div id="package_text"><?php echo JText::_('JSHOP_ONESTEPCHECKOUT_PACKAGE_TEXT') ?></div>
+	<div id="package_text"><?php echo Text::_('JSHOP_ONESTEPCHECKOUT_PACKAGE_TEXT') ?></div>
 	<?php } ?>
 </div>
 <?php } ?>
