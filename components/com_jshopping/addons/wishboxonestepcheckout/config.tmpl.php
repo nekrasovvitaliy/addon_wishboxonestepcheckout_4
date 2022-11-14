@@ -189,7 +189,7 @@
 	}
 	// 
 	// 
-	$formFieldOneStepCheckout = new JFormFieldWishBoxOneStepCheckout('wishboxonestepcheckoutgeneral', $this->params);
+	$formFieldOneStepCheckout = new JFormFieldWishBoxOneStepCheckout('general', $this->params);
 ?>
 	<script type="text/javascript">
 		//<![CDATA[
@@ -341,14 +341,14 @@
 	</table>
 	<?php echo HTMLHelper::_('uitab.endTab'); ?>
 	<?php echo HTMLHelper::_('uitab.addTab', 'tabsOneStepCheckoutSettings', 'tab2', Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS')); ?>
-	<div class="onestepcheckout-fieldsetts">
-		<div class="onestepcheckout-fieldslegend">
-			<i class="onestepcheckout-icon-home"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_BASE') ?><br/><br/>
-			<i class="onestepcheckout-icon-truck"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_DELIVERY') ?><br/><br/>
-			<span class="onestepcheckout-box-showrequire"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_REQUIRE') ?></span><br/><br/>
-			<span class="onestepcheckout-box-showcheck"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_CHECK') ?></span><br/><br/>
-			<span class="onestepcheckout-box-showsimple"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_SIMPLE') ?></span><br/><br/><br/>
-			<i class="onestepcheckout-icon-move"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_MOVE') ?><br/><br/>
+	<div class="wishboxonestepcheckout-fieldsetts">
+		<div class="wishboxonestepcheckout-fieldslegend">
+			<i class="wishboxonestepcheckout-icon-home"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_BASE') ?><br/><br/>
+			<i class="wishboxonestepcheckout-icon-truck"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_DELIVERY') ?><br/><br/>
+			<span class="wishboxonestepcheckout-box-showrequire"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_REQUIRE') ?></span><br/><br/>
+			<span class="wishboxonestepcheckout-box-showcheck"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_CHECK') ?></span><br/><br/>
+			<span class="wishboxonestepcheckout-box-showsimple"> </span> <span> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_SIMPLE') ?></span><br/><br/><br/>
+			<i class="wishboxonestepcheckout-icon-move"></i> - <?php echo Text::_('JSHOP_ONESTEPCHECKOUT_SETTINGS_USER_FIELDS_MOVE') ?><br/><br/>
 			<br />
 			<br />
 			<hr />
@@ -363,7 +363,7 @@
 				</th>
 				<th style="text-align:center;">
 					<span data-uk-tooltip title="<?php echo Text::_('JSHOP_DISPLAY'); ?>">
-						<i class="onestepcheckout-icon-eye-open"></i>  /  <i class="onestepcheckout-icon-eye-close"></i>
+						<i class="wishboxonestepcheckout-icon-eye-open"></i>  /  <i class="wishboxonestepcheckout-icon-eye-close"></i>
 					</span>
 				</th>
 			</tr>
@@ -382,7 +382,7 @@
 				}
 				// 
 				// 
-				$class_home = $class_track = 'onestepcheckoutsetshow';
+				$class_home = $class_track = 'wishboxonestepcheckoutsetshow';
 				// 
 				// 
 				if (isset($config_fields[$v]['display']) && $config_fields[$v]['display'])

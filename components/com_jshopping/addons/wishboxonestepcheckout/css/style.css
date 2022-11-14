@@ -7,7 +7,7 @@
   font-style: normal;
 }
 
-[class*='onestepcheckout-icon-']:before {
+[class*='wishboxonestepcheckout-icon-']:before {
   display: inline-block;
   font-family: "FontAwesome";
   font-weight: normal;
@@ -17,79 +17,81 @@
   -webkit-font-smoothing: antialiased;
  }
  
-.onestepcheckoutsetshow,
-.onestepcheckoutsetshow-check,
-.onestepcheckoutsetshow-check-require {
-  display: inline-block;
-  padding: 5px 12px;
-  width:17px;
-  border: 1px solid #999;
-  background: #eeeeee;
-  color: #bbb;
-  letter-spacing: normal;
-  vertical-align:middle;
-  text-align:center;
+.wishboxonestepcheckoutsetshow,
+.wishboxonestepcheckoutsetshow-check,
+.wishboxonestepcheckoutsetshow-check-require
+{
+	display: inline-block;
+	padding: 5px 12px;
+	width: 46px;
+	border: 1px solid #999;
+	background: #eeeeee;
+	color: #bbb;
+	letter-spacing: normal;
+	vertical-align:middle;
+	text-align:center;
 }
-.onestepcheckoutsetshow-check  {
+.wishboxonestepcheckoutsetshow-check  {
 	color: #0F7A0A;
 }
-.onestepcheckoutsetshow-check-require {
+.wishboxonestepcheckoutsetshow-check-require {
 	color:#950000;
 }
-.onestepcheckout-box-showsimple,
-.onestepcheckout-box-showcheck,
-.onestepcheckout-box-showrequire {
+.wishboxonestepcheckout-box-showsimple,
+.wishboxonestepcheckout-box-showcheck,
+.wishboxonestepcheckout-box-showrequire {
 	height: 16px;
 	width: 16px;
 	display: inline-block;
 	vertical-align: middle;
 	background: #bbb;
 }
-.onestepcheckout-box-showcheck {
+.wishboxonestepcheckout-box-showcheck {
 	background: #0F7A0A;
 }
-.onestepcheckout-box-showrequire {
+.wishboxonestepcheckout-box-showrequire {
 	background: #950000;
 }
-.onestepcheckout-icon-sort:before {
+.wishboxonestepcheckout-icon-sort:before {
   content: "\f0dc";
   color:#111;
 }
-.onestepcheckout-icon-check:before {
+.wishboxonestepcheckout-icon-check:before {
   content: "\f046";
 }
-.onestepcheckout-icon-unchecked:before,
-.onestepcheckout-icon-check-empty:before {
+.wishboxonestepcheckout-icon-unchecked:before,
+.wishboxonestepcheckout-icon-check-empty:before {
   content: "\f096";
 }
-.onestepcheckout-icon-truck:before {
+.wishboxonestepcheckout-icon-truck:before {
   content: "\f0d1";
 }
-.onestepcheckout-icon-home:before {
+.wishboxonestepcheckout-icon-home:before {
   content: "\f015";
 }
-.onestepcheckout-icon-eye-open:before {
+.wishboxonestepcheckout-icon-eye-open:before {
   content: "\f06e";
 }
 
-.onestepcheckout-icon-eye-close:before {
+.wishboxonestepcheckout-icon-eye-close:before {
 content: "\f070";
 }
-.onestepcheckout-icon-warning-sign:before {
+.wishboxonestepcheckout-icon-warning-sign:before {
   content: "\f071";
 }
-.onestepcheckout-icon-move:before {
+.wishboxonestepcheckout-icon-move:before {
 content: "\f047";
 }
 
 #table_user_fields [id^=params]:focus,
 #table_user_fields [id^=params]:hover,
-.onestepcheckoutselected{
+.wishboxonestepcheckoutselected
+{
 	/*padding: 3px 0;*/
 	background:#2862AD!important;
-	color: #fff!important;
+	/*color: #fff!important;*/
 }
-.onestepcheckout-title {
+.wishboxonestepcheckout-title {
 	border: 1px solid #ccc; 
 	border-radius: 4px; 
 	padding: 7px 12px;
@@ -104,14 +106,14 @@ content: "\f047";
 	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
 }
-.onestepcheckout-fieldsetts {
+.wishboxonestepcheckout-fieldsetts {
 	width: 60%;
 	float: right;
 }
-.onestepcheckout-fieldsetts i {
+.wishboxonestepcheckout-fieldsetts i {
 	font-size: 16px;
 }
-.onestepcheckout-fieldslegend {
+.wishboxonestepcheckout-fieldslegend {
 	border: 1px solid #ccc;
 	padding: 20px 40px;
 	width: 50%;
