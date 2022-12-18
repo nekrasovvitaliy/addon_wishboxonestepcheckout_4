@@ -19,7 +19,8 @@ var oneStepCheckout = oneStepCheckout || {};
 oneStepCheckout.showOverlay = function() {
 	<?php if ($this->addonParams->overlay) { ?>
 	var $=jQuery;
-	if ($("#onestepcheckout-overlay").size()>0) {
+	
+	if ($("#onestepcheckout-overlay").length > 0) {
 		return;
 	}
 	var div=$("<div>").attr("id","onestepcheckout-overlay");

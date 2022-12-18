@@ -1682,7 +1682,7 @@
 		/**
 		 *
 		 */
-		protected function parseMessageQueue()
+		protected function parseMessageQueue(): string
 		{
 			// 
 			// 
@@ -1696,7 +1696,7 @@
 			{
 				// 
 				// 
-				$errors .= Text::sprintf('JSHOP_WISHBOXONESTEPCHECKOUT_MESSAGEQUEUE', $error['type'],$error['message']);
+				$errors .= Text::sprintf('JSHOP_ONESTEPCHECKOUT_MESSAGEQUEUE', $error['type'],$error['message']);
 			}
 			// 
 			// 
